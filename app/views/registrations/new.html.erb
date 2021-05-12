@@ -2,19 +2,26 @@
 
 <%= form_with model: @user, url: sign_up_path do |form|  %>
     <div class="mb-3">
-        <%= form.text_field :name, placeholder: "name", class:"form-control"%>
+        <%= form.label :name %>
+        <%= form.text_field :name, placeholder: "David", class:"form-control"%>
     </div>
     
     <div class="mb-3">
-        <%= form.text_field :email, placeholder: "email", class:"form-control"%>
+        <%= form.label :email %>
+        <%= form.text_field :email, placeholder: "davi@gmail.com", class:"form-control"%>
     </div>
     
     <div class="mb-3">
+        <%= form.label :password %>
         <%= form.password_field :password, placeholder: "password", class:"form-control"%>
     </div>
     
     <div class="mb-3">
+        <%= form.label :confirmation_password %>
         <%= form.password_field :confirmation_password,  placeholder: "confirmation password", class:"form-control"%>
     </div>
-
+    
+    <div class="mb-3">
+        <%= form.submit "Get Started", class:"btn btn-primary"%>
+    </div>
 <% end %>
