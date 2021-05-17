@@ -1,3 +1,7 @@
 <div class="text-center">
 <h1>Buffer Tweets</h1>
+    <%if @user %>
+       Logged as: <%= @user.name %>
+        <%= button_to 'Log out', log_out_path, method: :delete, class:"btn btn-primary"%>
+    <% end %>
 </div>
