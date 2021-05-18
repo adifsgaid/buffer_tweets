@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   
   get 'sign_up', to: 'registrations#new', as: :sign_up
   post 'sign_up', to: 'registrations#create'
-  delete 'log_out', to: 'session#destroy'
   
+  get 'sign_in', to: 'sessions#new', as: :sign_in
+  post 'sign_in', to: 'sessions#create'
+  
+  delete 'log_out', to: 'sessions#destroy'
+
   root to: 'main#index'
 end
