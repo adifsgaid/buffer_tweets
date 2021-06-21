@@ -1,0 +1,5 @@
+Hi <%=params[:user].email %>
+
+<p>Someone  want's to change your password, if it's you click the link down bellow</p>
+
+<%= link_to "reset passworld", password_reset_edit_url(token: @token)  %>
