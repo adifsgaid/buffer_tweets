@@ -1,3 +1,7 @@
 class OmniauthCallbacks < ApplicationController
-  def twitter; end
+  def twitter
+    Current.user.twitter_accounts.create(
+        
+    )
+  end
 end
