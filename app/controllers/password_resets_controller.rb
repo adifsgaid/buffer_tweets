@@ -10,16 +10,17 @@ class PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_signed!(params[:token], purpose: 'Password_Reset')
+    @user = User.find_signed(params[:token], purpose: 'Password_Reset')
   rescue ActiveSupport::MessageVerifier::InvalidSignature
     redirect_to sign_in_path, alert: 'Your token has expired, please try again'
   end
 
   def update
-    if Current.user.update(password_params)
-      redirect_to root_path, notice: 'Password Sucesfully Changed'
+    @user = User.find_signed!(params[:token], purpose: 'Password_Reset')
+    if @user.update(password_params)
+      redirect_to sign_in_path, notice: 'Your password is succesfully changed, Log in'
     else
-      render :edit, alert: 'Something Went Wrong'
+      render :edit, alert: 'something went wrong, try again'
     end
   end
 
