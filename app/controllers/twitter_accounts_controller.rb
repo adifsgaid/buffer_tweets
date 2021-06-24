@@ -1,14 +1,14 @@
 class TwitterAccountsController < ApplicationController
   before_action :require_logged_in!
   before_action :set_twitter_account, only: [:destroy]
-  
+
   def index
     @twitter_accounts = Current.user.twitter_accounts
   end
 
   def destroy
     @twitter_account.destroy
-    redirect_to twitter_accounts_path, notice: "Successfully disconected @#{twitter_account.name}!"
+    redirect_to twitter_accounts_path, notice: "Successfully disconected @#{@twitter_account.name}!"
   end
 
   private
