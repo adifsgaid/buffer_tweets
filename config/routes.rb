@@ -21,5 +21,7 @@ Rails.application.routes.draw do
 
   delete 'log_out', to: 'sessions#destroy'
 
+  resources :twitter_accounts
+
   root to: 'main#index'
 end
