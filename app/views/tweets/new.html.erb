@@ -1,0 +1,21 @@
+<h1>Schedule Tweets</h1>
+<%= form_with model: @tweet do |form| %>
+    <div class="mb-3">
+        <%= form.label :twitter_account_id %>
+        <%= form.collection_select :twitter_account, Current.user.twitter_accounts, :id, :username %>
+        <%= link_to "Connect to your account", '/auth/twitter', method: :post, class:'btn btn-primary' %>
+    </div>
+    <div class="mb-3">
+        <%= form.label :body %>
+        <%= form.text_area :body, class:"form-control" %>
+    </div>
+
+     <div class="mb-3">
+        <%= form.label :publish_at %>
+        <div class="form-control">
+            <%= form.datetime_select :publish_at %>
+        </div>
+    </div>
+
+    <%= form.button "Schedule",class: "btn btn-primary" %>
+<% end %>
