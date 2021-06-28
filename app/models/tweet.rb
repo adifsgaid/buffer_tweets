@@ -11,6 +11,6 @@ class Tweet < ApplicationRecord
   end
 
   def published?
-    published?
+    tweet_id?
   end
 end

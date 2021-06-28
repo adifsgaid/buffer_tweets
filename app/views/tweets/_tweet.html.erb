@@ -1,8 +1,15 @@
-<div class="mb-3 card card-body">
-    <%= tweet.body %>
+<div class="d-flex mb-3 card card-body">
+    <div class="d-flex justify-content-center">
+        <%= tweet.body %> 
+    </div>
     <div class="me-4">
         <%= image_tag tweet.twitter_account.image , class: "rounded-circle" %>
         <%= link_to "@#{tweet.twitter_account.username}",  "https://twitter.com/#{tweet.twitter_account.username}", target: :blank %>
     </div>
-
+    <% if tweet.published? %>
+        <%= link_to "See The Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}" %>
+    <% else %>
+       Scheduled for: <%= l tweet.publish_at, format: :short %>
+       <%= link_to "Edit Your Tweet", edit_tweet_path(tweet) %>
+    <% end %>
 </div>
