@@ -10,7 +10,12 @@ class TweetsController < ApplicationController
   end
 
   def create
-    @tweet = Current.user.tweets.create(tweet_params)
+    @tweet = Current.user.tweets.new(tweet_params)
+    if @tweet.save
+      redirect_to tweets_path, notice: 'Congrats your tweet has been succesfully created'
+    else
+      render :new, alert: 'Something went wrong, try again.'
+    end
   end
 
   private
