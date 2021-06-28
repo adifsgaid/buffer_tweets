@@ -21,6 +21,6 @@
     <%= form.button "Schedule", class: "btn btn-primary" %>
 
     <% if form.object.persisted? %>
-        <%= button_to "Delete your tweet", form.object, method: :delete, data: {confirm: "Are your sure of this ?"} %>
+        <%= button_to "Delete your tweet", form.object, method: :delete, data: {confirm: "Are your sure of this ?"}, class:"btn btn-secondary"%>
     <% end %>
 <% end %>
