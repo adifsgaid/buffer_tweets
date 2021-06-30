@@ -1,5 +1,6 @@
 <div class="text-center">
 <h1>Buffer Tweets</h1>
 </div>
-
-<%= button_to "Connect Twitter", '/auth/twitter', method: :post, class: "btn btn-primary" %>
+<% if Current.user.twitter_accounts.none? %>
+    <%= button_to "Connect Twitter", '/auth/twitter', method: :post, class: "btn btn-primary" %>
+<% end %>   
