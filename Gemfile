@@ -10,12 +10,6 @@ group :development, :test do
   gem 'sqlite3' # gem to use in development-test environment
 end
 
-begin
-  require 'minitest/autorun'
-rescue LoadError => e
-  raise e unless ENV['RAILS_ENV'] == 'production'
-end
-
 group :production do
   gem 'pg' # gem to use in production environment
 end
