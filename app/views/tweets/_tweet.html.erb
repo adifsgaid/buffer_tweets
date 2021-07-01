@@ -7,7 +7,10 @@
         <%= link_to "@#{tweet.twitter_account.username}",  "https://twitter.com/#{tweet.twitter_account.username}", target: :blank %>
     </div>
     <% if tweet.published? %>
-        <%= link_to "See The Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}" %>
+        <%= link_to "See The Tweet", "https://twitter.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :blank %>
+
+        <%= link_to "Delete your tweet", tweet, method: :delete, data: {confirm: "Are your sure of this ?"}, class:"btn btn-outline-danger"%>
+   
     <% else %>
        Scheduled for: <%= l tweet.publish_at, format: :short %>
        <%= link_to "Edit Your Tweet", edit_tweet_path(tweet) %>
