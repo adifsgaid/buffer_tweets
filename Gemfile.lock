@@ -89,6 +89,7 @@ GEM
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
+    gem (0.0.1.alpha)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (4.1.0)
@@ -270,6 +271,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
+  gem (~> 0.0.1.alpha)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   omniauth-rails_csrf_protection (~> 1.0)
@@ -278,6 +280,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
+  redis (~> 4.3)
   sass-rails (>= 6)
   selenium-webdriver
   sidekiq (~> 6.2)
