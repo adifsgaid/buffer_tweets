@@ -10,6 +10,12 @@ group :development, :test do
   gem 'sqlite3' # gem to use in development-test environment
 end
 
+begin
+  require 'minitest/autorun'
+rescue LoadError => e
+  raise e unless ENV['RAILS_ENV'] == 'production'
+end
+
 group :production do
   gem 'pg' # gem to use in production environment
 end
@@ -61,10 +67,8 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-gem "omniauth-rails_csrf_protection", "~> 1.0"
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
-gem "twitter", "~> 7.0"
+gem 'twitter', '~> 7.0'
 
-gem "sidekiq", "~> 6.2"
-
-gem "gem", "~> 0.0.1.alpha"
+gem 'sidekiq', '~> 6.2'
